@@ -1,3 +1,6 @@
+-- note: you can upload this file into Google Cloud then after run:
+-- source 01_create_tables.sql;
+
 
 -- Assume the database team_risk is created
 
@@ -7,7 +10,7 @@ CREATE TABLE IF NOT EXISTS strategy (
     Strategy_name VARCHAR(50) NOT NULL,
     Strategy_desc VARCHAR(50),
     Strategy_formula VARCHAR(255),
-    PRIMARY KEY (Stategy_name)
+    PRIMARY KEY (Strategy_name)
 );
 
 CREATE TABLE IF NOT EXISTS company (
@@ -86,7 +89,7 @@ CREATE TABLE IF NOT EXISTS daily_metrics (
 -- trading records (child tables of strategy)
 
 CREATE TABLE IF NOT EXISTS transactions (
-    transaction_id INT NOT NULL,
+    transaction_id INT NOT NULL AUTO_INCREMENT,
     strategy VARCHAR(50),
     ticker VARCHAR(10),
     transaction_date DATE,
@@ -98,8 +101,8 @@ CREATE TABLE IF NOT EXISTS transactions (
 
 CREATE TABLE IF NOT EXISTS holdings (
     Holding_strategy VARCHAR(50) NOT NULL,
-    Holding_date DATE NOT NULL,
-    Holding_ticker VARCHAR(20) NOT NULL,
+    Holdings_date DATE NOT NULL,
+    Holdings_ticker VARCHAR(20) NOT NULL,
     purchase_price DECIMAL(12, 2),
     holdings_amount INT,
     purchase_date DATE,
