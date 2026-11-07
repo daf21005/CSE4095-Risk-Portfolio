@@ -6,7 +6,7 @@ The team includes:
 - David F.
 - Dylan M.
 - Diva E.
-- Leonardo W.
+- Leonardo W.  
 Don't forget to create an .env file to hold the Gemini API Key and create a virtual environment:
 ```bash
 python3 -m venv venv
