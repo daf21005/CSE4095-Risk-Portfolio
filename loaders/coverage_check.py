@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+#!/usr/bin/env python3
 """Field-coverage check for the Risk/Dividend project.
 
 Pulls Yahoo Finance data (via yfinance) for a mixed sample of tickers and
@@ -28,8 +29,9 @@ import time
 
 import yfinance as yf
 
-# Yahoo keys that appear in docs/fields_and_definitions.csv
+# Yahoo keys that appear in docs/fields_and_definitions.csv (plus sector)
 FIELDS = [
+    "sector",
     "dividendRate",
     "dividendYield",
     "trailingAnnualDividendYield",
@@ -52,7 +54,7 @@ FIELDS = [
 ]
 
 # Fields where min / median / max would be meaningless (dates, text)
-NO_STATS = {"exDividendDate"}
+NO_STATS = {"exDividendDate", "sector"}
 
 # A mixed sample on purpose: steady payers, banks, REITs, utilities, a very
 # high yielder, non-payers, a company with negative equity (BA), and one that
@@ -122,8 +124,6 @@ def build_row(symbol, info, err):
     row["is_payer"] = int(is_num(info.get("dividendRate")) and info["dividendRate"] > 0)
 
     # Unit checks: compare Yahoo's yield with dividendRate / price.
-    # ratio near 1   -> the yield is a fraction (0.03 = 3%)
-    # ratio near 100 -> the yield is a percent  (3.0 = 3%)
     expected = None
     if is_num(row["dividendRate"]) and is_num(row["price"]) and row["price"] > 0:
         expected = row["dividendRate"] / row["price"]
