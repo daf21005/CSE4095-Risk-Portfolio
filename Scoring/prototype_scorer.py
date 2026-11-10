@@ -31,7 +31,7 @@ def build_prototype_scores(df_metrics: pd.DataFrame) -> pd.DataFrame:
                 winsorize_series
             )
 
-    for col, cfg in metrics_config.items]:  # type: ignore
+    for col, cfg in metrics_config.items():  # type: ignore
         clean_col = f"{col}_clean"
         z_col = cfg["z_name"]
         if clean_col not in df.columns:
