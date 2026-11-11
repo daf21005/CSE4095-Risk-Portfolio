@@ -1,0 +1,17 @@
+# data and scoring
+yfinance>=0.2.50
+pandas>=2.0
+numpy>=1.26
+scipy>=1.11
+requests>=2.31
+lxml>=5.0
+
+# database
+cloud-sql-python-connector[pymysql]>=1.9
+SQLAlchemy>=2.0
+PyMySQL>=1.1
+
+
+# AI
+google-genai>=1.0
+python-dotenv>=1.0
