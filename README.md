@@ -95,3 +95,7 @@ A missing value is never filled with 0. A stock is scored on the metrics it does
 4. One scoring recipe for all sectors, or custom metrics for Financials, Utilities, and Real Estate.
 5. The minimum number of available metrics before a stock can be scored.
 6. Which Gemini model the agent uses (confirm with the professor).
+
+
+
+Hi
